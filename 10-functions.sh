@@ -1,5 +1,5 @@
 #DATE=$(date '+%c')
-DATE=$(date '+%F-%H:%M:%S')
+DATE=$(date '+%F|%H:%M:%S')
 LOGFILE="/var/log/logs/$0-$DATE.log"
 echo "This script started running at $DATE" &>> $LOGFILE
 
