@@ -1,6 +1,6 @@
 #DATE=$(date '+%c')
-DATE=$(date '+%F|%H:%M:%S')
-LOGFILE="/tmp/$DATE.log"
+DATE=$(date '+%F-%H:%M:%S')
+LOGFILE="/tmp/$0-$DATE.log"
 echo "This script started running at $DATE" &>> $LOGFILE
 
 ID=$(id -u)
