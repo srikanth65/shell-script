@@ -1,7 +1,7 @@
 #DATE=$(date '+%c')
 DATE=$(date '+%F|%H:%M:%S')
 LOGFILE="/tmp/$DATE.log"
-echo "This script started running at $DATE" > $LOGFILE
+echo "This script started running at $DATE" &>> $LOGFILE
 
 ID=$(id -u)
 VALUE=mysql
@@ -27,7 +27,7 @@ CHECK(){
     fi 
 }
 
-yum list $VALUE > $LOGFILE
+yum list $VALUE &>> $LOGFILE
 #CHECK $VALUE
-yum install $VALUE -y > $LOGFILE
+yum install $VALUE -y &>> $LOGFILE
 VALIDATE $? "installing $VALUE"
