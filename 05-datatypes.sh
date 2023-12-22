@@ -5,7 +5,8 @@
 #read SECONDVALUE
 FIRSTVALUE=$1
 SECONDVALUE=$2
-echo "Total is $(($FIRSTVALUE+$SECONDVALUE))"
+SUM=$($FIRSTVALUE+$SECONDVALUE)
+echo "Total is $SUM"
 
 echo "Total arguments passed: $@"
 echo "How many arguments passed: $#"
