@@ -4,7 +4,13 @@ if [ $ID -ne 0 ]
 then
     echo "Please run script with sudo access"
 fi
-yum install mysql -y
+
+yum list mysql 
+if [ $? -eq 0 ]
+then
+    echo "Already installed mysql"
+else 
+    yum install mysql -y
 if [ $? -ne 0 ]
 then
     echo "command execution failed"
