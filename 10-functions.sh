@@ -1,7 +1,8 @@
 #DATE=$(date '+%c')
-DATE=$(date '+%F|%H:%M:%S|')
-echo "This script started running at $DATE" > $LOGFILE
+DATE=$(date '+%F|%H:%M:%S')
 LOGFILE="/tmp/$DATE.log"
+echo "This script started running at $DATE" > $LOGFILE
+
 ID=$(id -u)
 VALUE=mysql
 if [ $ID -ne 0 ]
