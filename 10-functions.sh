@@ -1,5 +1,5 @@
-DATE=$(date '+%c')
-# DATE=$(date '+%F %H %M %S')
+#DATE=$(date '+%c')
+DATE=$(date '+%F|%H:%M:%S|')
 echo "This script started running at $DATE"
 ID=$(id -u)
 VALUE=mysql
@@ -25,7 +25,7 @@ CHECK(){
     fi 
 }
 
-yum list $VALUE > /dev/null
+yum list $VALUE > /tmp/null
 #CHECK $VALUE
 yum install $VALUE -y
 VALIDATE $? "installing $VALUE"
