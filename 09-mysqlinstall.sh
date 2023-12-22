@@ -1,15 +1,9 @@
 #!/bin/bash
-
-if [ $? -eq 0 ]
-then
-    echo "command executed successfuly"
-else
-    echo "Command execution failed"
-fi
 yum install mysql -y
-if [ $? -eq 0 ]
+if [ $? -nq 0 ]
 then
-    echo "command executed successfuly"
+    echo "command execution failed"
+    exit 1
 else
-    echo "Command execution failed"
+    echo "Command executed successfuly"
 fi
