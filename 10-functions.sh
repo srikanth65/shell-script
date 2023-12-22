@@ -2,6 +2,7 @@ ID=$(id -u)
 if [ $ID -ne 0 ]
 then
 echo "Run the script with sudo access"
+exit 1
 fi
 VALIDATE(){
     if [ $? -ne 0 ]
