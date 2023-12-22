@@ -23,6 +23,6 @@ CHECK(){
 }
 
 yum list $VALUE > /dev/null
-CHECK $VALUE
+#CHECK $VALUE
 yum install $VALUE -y
 VALIDATE $? "installing $VALUE"
