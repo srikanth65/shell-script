@@ -1,5 +1,5 @@
 ID=$(id -u)
-VALUE=nginx
+VALUE=apache
 if [ $ID -ne 0 ]
 then
 echo "Run the script with sudo access"
