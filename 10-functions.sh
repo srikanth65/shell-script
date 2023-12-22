@@ -22,6 +22,6 @@ CHECK(){
 }
 
 yum list mysql > /dev/null
-CHECK
+CHECK "mysql"
 yum install mysql -y
 VALIDATE $? "installing mysql"
