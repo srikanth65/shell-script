@@ -1,3 +1,6 @@
+DATE=$(date+%c)
+# %F %H %M %S
+echo "This script started running at $DATE"
 ID=$(id -u)
 VALUE=mysql
 if [ $ID -ne 0 ]
