@@ -1,5 +1,8 @@
 #DATE=$(date '+%c')
 DATE=$(date '+%F-%H:%M:%S')
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 LOGFILE="/var/log/logs/$0-$DATE.log"
 echo "This script started running at $DATE" &>> $LOGFILE
 
@@ -7,22 +10,22 @@ ID=$(id -u)
 VALUE=mysql
 if [ $ID -ne 0 ]
 then
-echo "Run the script with sudo access"
+echo -e "$R Run the script with sudo access $N"
 exit 1
 fi
 VALIDATE(){
     if [ $? -ne 0 ]
     then
-    echo "$2 is failed to install"
+    echo -e "$R $2 is failed to install $N"
     exit 1
     else
-    echo "$2 is successfully completed"
+    echo -e "$G $2 is successfully completed $N"
     fi 
 }
 CHECK(){
     if [ $? -eq 0 ]
     then
-    echo "$1 is already installed"
+    echo -e "$G $1 is already installed $N"
     exit 1
     fi 
 }
