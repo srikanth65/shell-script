@@ -11,7 +11,7 @@ VALIDATE(){
     echo "$2 is failed to install"
     exit 1
     else
-    echo "$2 is successfully installed"
+    echo "$2 is successfully completed"
     fi 
 }
 CHECK(){
