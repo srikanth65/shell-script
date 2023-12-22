@@ -6,7 +6,7 @@ then
     exit 1
 fi
 
-yum list mysql 
+yum list mysql > /dev/null
 if [ $? -eq 0 ]
 then
     echo "Already installed mysql"
