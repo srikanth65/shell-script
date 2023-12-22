@@ -1,4 +1,5 @@
 ID=$(id -u)
+VALUE=mysql
 if [ $ID -ne 0 ]
 then
 echo "Run the script with sudo access"
@@ -21,7 +22,7 @@ CHECK(){
     fi 
 }
 
-yum list mysql > /dev/null
-CHECK "mysql"
-yum install mysql -y
-VALIDATE $? "installing mysql"
+yum list $VALUE > /dev/null
+CHECK $VALUE
+yum install $VALUE -y
+VALIDATE $? "installing $VALUE"
