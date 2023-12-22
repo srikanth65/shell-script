@@ -1,5 +1,5 @@
 ID=$(id -u)
-VALUE=apache
+VALUE=maven
 if [ $ID -ne 0 ]
 then
 echo "Run the script with sudo access"
