@@ -13,6 +13,7 @@ then
     exit 1
 else 
     yum install mysql -y
+fi
 if [ $? -ne 0 ]
 then
     echo "command execution failed"
