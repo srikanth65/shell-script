@@ -8,7 +8,7 @@ echo "script executes"
 fi
 
 VALIDATE(){
-    if [ $? -eq 0]
+    if [ $? -eq 0 ]
     then
     echo "$1 Command executed"
     else
