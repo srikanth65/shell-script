@@ -13,6 +13,7 @@ VALIDATE(){
     echo "$1 Command executed"
     else
     echo "$1 Command execution failed"
+    fi
 }
 
 
