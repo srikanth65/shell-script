@@ -1,6 +1,7 @@
 #!/bin/bash
 ID=$( id -u )
 DATE=$( date '+%F-%H:%M:%S' )
+LOGFILE=$(/tmp/$0-$DATE.log)
 echo "$DATE"
 R="\e[31m"
 G="\e[32m"
@@ -25,7 +26,7 @@ VALIDATE(){
 
 for package in $@
 do
-echo "entered value $package"
+echo "entered value $package" &>> $LOGFILE
 VALIDATE $package
 #yum install $package -y
 done
