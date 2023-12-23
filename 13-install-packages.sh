@@ -9,6 +9,6 @@ fi
 
 for package in $@
 do
-echo "entered value"
+echo "entered value $package"
 #yum install $package -y
 done
