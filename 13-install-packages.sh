@@ -33,6 +33,7 @@ then
 echo "$Y $package already exists $N" &>> $LOGFILE
 else 
 yum install $package -y &>> $LOGFILE
+fi
 VALIDATE $package
 #yum install $package -y
 done
