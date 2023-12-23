@@ -27,13 +27,13 @@ VALIDATE(){
 
 for package in $@
 do
-yum list $package &>> $LOGFILE
-if [ $? -ne 0 ]
-then
-yum install $package -y &>> $LOGFILE
-VALIDATE $package
-else 
-echo "$Y $package already exists $N" &>> $LOGFILE
-fi
+    yum list $package &>> $LOGFILE
+    if [ $? -ne 0 ]
+    then
+    yum install $package -y &>> $LOGFILE
+    VALIDATE $package
+    else 
+    echo "$Y $package already exists $N" &>> $LOGFILE
+    fi
 #yum install $package -y
 done
