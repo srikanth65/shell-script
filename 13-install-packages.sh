@@ -1,7 +1,7 @@
 #!/bin/bash
 ID=$( id -u )
 DATE=$( date '+%F-%H:%M:%S' )
-LOGFILE=$(/tmp/$0-$DATE.log)
+LOGFILE=/tmp/$0-$DATE.log
 echo "$DATE"
 R="\e[31m"
 G="\e[32m"
