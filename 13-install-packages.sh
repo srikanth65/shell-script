@@ -5,6 +5,7 @@ LOGFILE=/tmp/$0-$DATE.log
 echo "$DATE"
 R="\e[31m"
 G="\e[32m"
+Y="\e[33m"
 N="\e[0m"
 
 if [ $ID -ne 0 ]
@@ -17,16 +18,21 @@ fi
 VALIDATE(){
     if [ $? -eq 0 ]
     then
-    echo "$1 Command executed"
+    echo -e " $G $1 Command executed $N"
     else
-    echo "$1 Command execution failed"
+    echo -e "$G $1 Command execution failed $N"
     fi
 }
 
 
 for package in $@
 do
-echo "entered value $package" &>> $LOGFILE
+yum list $package
+if [ $? -eq 0 ]
+then
+echo "$Y $package already exists $N" &>> $LOGFILE
+else 
+yum install $package -y &>> $LOGFILE
 VALIDATE $package
 #yum install $package -y
 done
