@@ -18,7 +18,7 @@ fi
 VALIDATE(){
     if [ $? -eq 0 ]
     then
-    echo -e " $G $1 Command executed $N"
+    echo -e "$G $1 Command executed $N"
     else
     echo -e "$G $1 Command execution failed $N"
     fi
@@ -30,10 +30,10 @@ do
     yum list $package &>> $LOGFILE
     if [ $? -ne 0 ]
     then
-    yum install $package -y &>> $LOGFILE
-    VALIDATE $package
+        yum install $package -y &>> $LOGFILE
+        VALIDATE $?
     else 
-    echo -e "$Y $package already exists $N" &>> $LOGFILE
+        echo -e "$Y $package already exists $N" # &>> $LOGFILE
     fi
 #yum install $package -y
 done
