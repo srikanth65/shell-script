@@ -3,4 +3,6 @@ ID=$( id -u )
 if [ $ID -ne 0 ]
 then
 echo "retry script with sudo"
+else
+echo "script executes"
 fi
