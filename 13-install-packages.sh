@@ -31,6 +31,7 @@ yum list $package
 if [ $? -eq 0 ]
 then
 echo "$Y $package already exists $N" &>> $LOGFILE
+exit 1
 else 
 yum install $package -y &>> $LOGFILE
 fi
