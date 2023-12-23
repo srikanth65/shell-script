@@ -1,6 +1,6 @@
 #!/bin/bash
 ID=$( id -u )
-DATE=${ date '+%F-%H:%M:%S' }
+DATE=$( date '+%F-%H:%M:%S' )
 echo "$DATE"
 R="\e[31m"
 G="\e[32m"
