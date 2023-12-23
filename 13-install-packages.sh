@@ -20,6 +20,6 @@ VALIDATE(){
 for package in $@
 do
 echo "entered value $package"
-VALIDATE
+VALIDATE $package
 #yum install $package -y
 done
