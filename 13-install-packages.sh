@@ -12,7 +12,7 @@ if [ $ID -ne 0 ]
 then
 echo "retry script with sudo"
 else
-echo "script executes"
+echo "script executing...."
 fi
 
 VALIDATE(){
@@ -27,7 +27,7 @@ VALIDATE(){
 
 for package in $@
 do
-yum list $package
+yum list $package &>> $LOGFILE
 if [ $? -eq 0 ]
 then
 echo "$Y $package already exists $N" &>> $LOGFILE
