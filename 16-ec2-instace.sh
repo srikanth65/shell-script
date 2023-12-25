@@ -5,13 +5,13 @@ INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shippi
 
 for i in ${INSTANCE[@]}
 do
-    echo "$i"
+    #echo "$i"
     if [ $i == redis ]
     then 
       IP=$(aws ec2 run-instances --image-id $AMI --instance-type t2.micro \ 
-        --security-group-ids $SECURITY 'ResourceType=instance,Tags=[{Key=Name,Value=$i}]') #\
+        --security-group-ids $SECURITY --tags Key=Name,Value=$i) #\
         #--query 'Reservations[*].Instances[*].[PrivateIpAddress, PublicIpAddress]' \ 
        # --output text)
     fi
-    echo "$i:$IP"
+   # echo "$i:$IP"
 done 
