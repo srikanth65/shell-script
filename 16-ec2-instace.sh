@@ -3,7 +3,7 @@ AMI="ami-03265a0778a880afb"
 SECURITY="sg-0773d1c611d536265"
 INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shipping" "payments" "ratings")
 
-for i in {$INSTANCE@}
+for i in ${INSTANCE[@]}
 do
     echo "$i"
     if [ $i == redis ]
