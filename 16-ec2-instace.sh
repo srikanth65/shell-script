@@ -3,7 +3,7 @@ AMI=
 SECURITY=
 INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shipping" "payments" "ratings")
 
-for i in ${INSTANCE@}
+for i in {$INSTANCE@}
 do
     if [ $i -eq redis ]
     then 
