@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCE_DIR=/home/centos/test1
+SOURCE_DIR=/home/centos/test
 
 if [ ! -d $SOURCE_DIR ]
 then
