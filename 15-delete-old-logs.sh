@@ -2,7 +2,7 @@
 
 SOURCE_DIR=/home/centos/test1
 
-if [ ! d $SOURCE_DIR ]
+if [ ! -d $SOURCE_DIR ]
 then
     echo -e "$SOURCE_DIR source directory does not exists"
 fi 
