@@ -5,7 +5,8 @@ INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shippi
 
 for i in {$INSTANCE@}
 do
-    if [ $i -eq redis ]
+    echo "$i"
+    if [ $i == redis ]
     then 
       IP=$(aws ec2 run-instances --image-id $AMI --instance-type t2.micro \ 
         --security-group-ids $SECURITY --tags Key=Name,Value=$i \
