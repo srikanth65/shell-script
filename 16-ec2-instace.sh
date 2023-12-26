@@ -8,10 +8,9 @@ do
     #echo "$i"
     if [ $i == redis ]
     then 
-      IP=$(aws ec2 run-instances --image-id $AMI --instance-type t2.micro \ 
-        --security-group-ids $SECURITY --tags Key=Name,Value=$i) #\
-        #--query 'Reservations[*].Instances[*].[PrivateIpAddress, PublicIpAddress]' \ 
-       # --output text)
+      IP=$(aws ec2 run-instances --image-id $AMI --instance-type t2.micro --security-group-ids sg-0773d1c611d536265 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$i}]' \
+        --query 'Instances[0].[PrivateIpAddress]' \ 
+        --output text)
     fi
-   # echo "$i:$IP"
+    echo "$i:$IP"
 done 
