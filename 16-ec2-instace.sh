@@ -8,7 +8,7 @@ INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shippi
     #echo "$i"
 #    if [ $i == redis ]
 #    then 
-aws ec2 run-instances --image-id $AMI --instance-type t2.micro --security-group-ids sg-0773d1c611d536265 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=$i}]' \
+aws ec2 run-instances --image-id $AMI --instance-type t2.micro --security-group-ids sg-0773d1c611d536265 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" \
         --query 'Instances[0].[PrivateIpAddress]' \ 
         --output text
 #    fi
