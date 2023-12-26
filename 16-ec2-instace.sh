@@ -6,9 +6,9 @@ INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shippi
 for i in ${INSTANCE[@]}
 do
 
-    if [ $i == "rabbitmq" ] || [ $i == "mongoDB"] || [ $i == "redis"]
+    if [ $i == "rabbitmq" ] || [ $i == "mongoDB"] || [ $i == "redis" ]
     then 
-       INSTANCE_TYPE="t2.micro"
+       INSTANCE_TYPE="t3.small"
     else 
         INSTANCE_TYPE="t2.micro"
     fi
