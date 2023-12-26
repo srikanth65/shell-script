@@ -6,10 +6,12 @@ INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shippi
 for i in ${INSTANCE[@]}
 do
 
-    if [ $i == rabbitmq ]
+    if [ $i == rabbitmq ] || [ $i == mongoDB] || [ $i == redis]
     then 
-       IP=$(aws ec2 run-instances --image-id $AMI --instance-type t2.micro --security-group-ids $SECURITY --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].[PrivateIpAddress]' --output text)
-       echo "$i:$IP"
+       INSTANCE_TYPE="t2.micro"
+    else 
+        INSTANCE_TYPE="t2.micro"
     fi
-    #echo "$i:$IP"
+   IP=$(aws ec2 run-instances --image-id $AMI --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].[PrivateIpAddress]' --output text)
+        echo "Name of server - $i; Private IP address: $IP"
 done 
