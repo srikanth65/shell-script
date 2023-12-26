@@ -6,9 +6,9 @@ INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shippi
 for i in ${INSTANCE[@]}
 do
 
-    if [ $i == redis ]
+    if [ $i == mysql ]
     then 
-        aws ec2 run-instances --image-id $AMI --instance-type t2.micro --security-group-ids $SECURITY --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].[PrivateIpAddress]' --output text
+       IP=$(aws ec2 run-instances --image-id $AMI --instance-type t2.micro --security-group-ids $SECURITY --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].[PrivateIpAddress]' --output text)
     fi
     echo "$i:$IP"
 done 
