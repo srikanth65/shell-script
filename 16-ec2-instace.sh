@@ -14,8 +14,8 @@ do
     else 
         INSTANCE_TYPE="t2.micro"
     fi
-   IP=$(aws ec2 run-instances --image-id $AMI --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].[PublicIpAddress]' --output text)
-        echo "ServerName: $i  Public_IP_Address: $IP"
+   IP=$(aws ec2 run-instances --image-id $AMI --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].[PrivateIpAddress]' --output text)
+        echo "ServerName: $i  Private_IP_Address: $IP"
 done 
 
 # create R53 record, make sure you delete existing record
@@ -25,14 +25,14 @@ aws route53 change-resource-record-sets \
 {
     "Comment": "Creating a record set for cognito endpoing",
     "Changes": [{
-     "Action" : "UPSERT", 
-     "ResourceRecordSet" : {
+    "Action" : "UPSERT", 
+    "ResourceRecordSet" : {
         "Name" : "'$i'.'$DOMAIN_NAME'",
         "Type" : "A",
         "TTL" : 1,
         "ResourceRecords" : [{
             "Value" : "'$IP'"
         }]
-     }    
+    }    
     }]
 }
