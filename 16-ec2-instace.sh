@@ -8,7 +8,7 @@ ZONE_ID=Z07707692IZAFTSKYYTLY
 for i in ${INSTANCE[@]}
 do
 
-    if [ $i == "rabbitmq" ] || [ $i == "mongoDB" ] || [ $i == "redis" ]
+    if [ $i == "mysql" ] || [ $i == "mongodb" ] || [ $i == "shipping" ]
     then 
        INSTANCE_TYPE="t3.small"
     else 
