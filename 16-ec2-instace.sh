@@ -1,7 +1,7 @@
 #!/bin/bash
 AMI="ami-03265a0778a880afb"
 SECURITY="sg-0773d1c611d536265"
-INSTANCE=("mongoDB" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shipping" "payments" "ratings")
+INSTANCE=("mongodb" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shipping" "payment" "dispatch" "web")
 DOMAIN_NAME="aws2day.online"
 ZONE_ID=Z07707692IZAFTSKYYTLY
 
@@ -16,14 +16,13 @@ do
     fi
    IP=$(aws ec2 run-instances --image-id $AMI --instance-type $INSTANCE_TYPE --security-group-ids $SECURITY --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].[PrivateIpAddress]' --output text)
         echo "ServerName: $i  Private_IP_Address: $IP"
-done 
-
+ 
 # create R53 record, make sure you delete existing record
 aws route53 change-resource-record-sets \
 --hosted-zone-id $ZONE_ID \
 --change-batch '
 {
-    "Comment": "Creating a record set for cognito endpoing",
+    "Comment": "Creating a record set for cognito endpoint",
     "Changes": [{
     "Action" : "UPSERT", 
     "ResourceRecordSet" : {
@@ -35,4 +34,6 @@ aws route53 change-resource-record-sets \
         }]
     }    
     }]
-}'
+}
+    '
+done 
