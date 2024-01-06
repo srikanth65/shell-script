@@ -1,7 +1,8 @@
 #!/bin/bash
 AMI="ami-03265a0778a880afb"
 SECURITY="sg-0773d1c611d536265"
-INSTANCE=("mongodb" "redis" "mysql" "rabbitmq" "catalouge" "cart" "user" "shipping" "payment" "dispatch" "web")
+INSTANCE=("mongodb" "catalogue" "web")
+#INSTANCE=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "cart" "user" "shipping" "payment" "dispatch" "web")
 DOMAIN_NAME="aws2day.online"
 ZONE_ID=Z07707692IZAFTSKYYTLY
 
